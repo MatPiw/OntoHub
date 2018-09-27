@@ -25,3 +25,7 @@ Ontohub is currently in an early phase and does not support many formats yet. Fo
 
 ## Contributing
 If you want some feature to be implemented, raise an issue or create a pull request to review. Feel free to submit ideas and help OntoHub to grow.
+
+## Download
+Version 1.0.0 of OntoHub can be downloaded [here](https://github.com/MatPiw/OntoHub/releases/tag/v1.0.0).
+See also the [releases](https://github.com/MatPiw/OntoHub/releases) to keep up to date with latest versions.
