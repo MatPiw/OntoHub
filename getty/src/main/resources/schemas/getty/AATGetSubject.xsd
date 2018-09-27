@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Gregg (J. Paul Getty Trust) -->
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Stephen Toney (Systems Planning) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Vocabulary">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Subject" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="Associative_Relationships" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Associative_Relationship" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="AR_Date" minOccurs="0">
+														<xs:complexType>
+															<xs:all>
+																<xs:element name="Display_Date" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>Label for relationship date information</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Start_Date" type="Geog_Date">
+																	<xs:annotation>
+																		<xs:documentation>Historical start date of relationship</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="End_Date" type="Geog_Date">
+																	<xs:annotation>
+																		<xs:documentation>Historical end date of relationship</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Description" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Additional relationship information</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Historic_Flag" type="Historic_Flag_Value" default="Current" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Flag indicating the historical status of the relationship</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Relationship_Type" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Relationship type description</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Related_Subject_ID">
+														<xs:complexType>
+															<xs:choice>
+																<xs:element name="VP_Subject_ID" type="xs:integer">
+																	<xs:annotation>
+																		<xs:documentation>The Getty Vocabulary ID number of related subject in the associative relationship</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Contrib_Subject_ID" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>Contributor system ID number of related subject in the associative relationship</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:choice>
+														</xs:complexType>
+													</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Descriptive_Notes" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Descriptive_Note" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="Note_Text" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Subject descriptive note</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="Note_Language" type="xs:string"/>
+													<xs:element name="Note_Contributors" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Note_Contributor" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:all>
+																			<xs:element name="Contributor_id" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>A combination of the unique identifier and brief description  separated by a foward slash  ('/') for a particular conntributor to the AAT</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:all>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Note_Sources" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Note_Source" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:all>
+																			<xs:element name="Source" type="SourceType"/>
+																			<xs:element name="Page" type="xs:string" minOccurs="0">
+																				<xs:annotation>
+																					<xs:documentation>Free text entry field for information relating to Source-to-note relationship</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:all>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Facet_Code" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Facet code</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Merged_Status" type="Merged_Status_Value">
+								<xs:annotation>
+									<xs:documentation>Indicates whether or not the subject contains merged subject IDs</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Parent_Relationships">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Preferred_Parent" type="ParentType"/>
+										<xs:element name="Non-Preferred_Parent" type="ParentType" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Record_Type" default="Concept">
+								<xs:annotation>
+									<xs:documentation>Subject record type</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Concept"/>
+										<xs:enumeration value="Facet"/>
+										<xs:enumeration value="Guide Term"/>
+										<xs:enumeration value="Hierarchy Name"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Subject_Contributors" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Subject_Contributor" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="Contributor_id" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>A combination of the unique identifier and brief description  separated by a foward slash  ('/') for a particular conntributor to the AAT</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Subject_Sources" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Subject_Source" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+													<xs:element name="Source" type="SourceType"/>
+													<xs:element name="Page" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>Free text entry field for information relating to subject-to-source relationship</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Terms">
+								<xs:annotation>
+									<xs:documentation>There can be one and only one preferred term, but zero to many non-preferred terms.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Preferred_Term" type="TermType"/>
+										<xs:element name="Non-Preferred_Term" type="TermType" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+						<xs:attribute name="Subject_ID" type="xs:integer" use="required">
+							<xs:annotation>
+								<xs:documentation>Unique identification number of an AAT record</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="Geog_Date">
+		<xs:annotation>
+			<xs:documentation>Years of geographic or geologic events</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Historical_Date">
+		<xs:annotation>
+			<xs:documentation>Years recording historical events</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Historic_Flag_Value">
+		<xs:annotation>
+			<xs:documentation>Valid historical flag values</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Both"/>
+			<xs:enumeration value="Current"/>
+			<xs:enumeration value="Historical"/>
+			<xs:enumeration value="N/A"/>
+			<xs:enumeration value="Undetermined"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Merged_Status_Value">
+		<xs:annotation>
+			<xs:documentation>Valid merged status values</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Merged"/>
+			<xs:enumeration value="Not Merged"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ParentType">
+		<xs:sequence>
+			<xs:element name="Parent_Subject_ID" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Unique ID number of parent record</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Relationship_Type">
+				<xs:annotation>
+					<xs:documentation>Relationship type (only parent/child currently available)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Parent/Child"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Historic_Flag" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag indicating the historical status of the parent/child relationship</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Current"/>
+						<xs:enumeration value="Historical"/>
+						<xs:enumeration value="Both"/>
+						<xs:enumeration value="N/A"/>
+						<xs:enumeration value="Undetermined"/>
+						<xs:enumeration value="Whole/Part-BTP"/>
+						<xs:enumeration value="Genus/Species-BTG"/>
+						<xs:enumeration value="Instance-BTI"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Parent_String" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Comma-delimited string of preferred terms showing the sequence of parents in the preferred subject hierarchy</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Parent_Date" minOccurs="0">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="Display_Date" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Label for relationship date information</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Start_Date" type="Geog_Date">
+							<xs:annotation>
+								<xs:documentation>Historical start date of parent/child relationship</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="End_Date" type="Geog_Date">
+							<xs:annotation>
+								<xs:documentation>Historical end date of parent/child relationship</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Hier_Rel_Type">
+				<xs:annotation>
+					<xs:documentation>Hierarchical Relationship Type</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Whole/Part-BTP"/>
+						<xs:enumeration value="Genus/Species-BTG"/>
+						<xs:enumeration value="Instance-BTI"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RevisionType">
+		<xs:annotation>
+			<xs:documentation>Set of values to identify a revision event</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Revision_ID" type="xs:unsignedLong"/>
+			<xs:element name="Aspect">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="subject"/>
+						<xs:enumeration value="scope note"/>
+						<xs:enumeration value="Term"/>
+						<xs:enumeration value="Associative Relationships"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Action" type="xs:string"/>
+			<xs:element name="User_Name" type="xs:string" minOccurs="0"/>
+			<xs:element name="Date" type="xs:string"/>
+			<xs:element name="Note" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SourceType">
+		<xs:annotation>
+			<xs:documentation>Set of values to reference a bibliographic source</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="Source_ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>A combination of the unique identifier and brief description separated by a forward slash ('/') for a source in the AAT</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="TermType">
+		<xs:annotation>
+			<xs:documentation>Term block for the Terms element</xs:documentation>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="AACR2_Flag" default="N/A" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag to indicate when a ULAN record is a AACR2 record</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="N/A"/>
+						<xs:enumeration value="Yes"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Display_Name" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Label for term date information</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Yes"/>
+						<xs:enumeration value="No"/>
+						<xs:enumeration value="N/A"/>
+						<xs:enumeration value="Index"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Display_Order" type="xs:unsignedShort" default="0" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Order number of the term in relation to the other terms of a subject record</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Historic_Flag" default="Current" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag indicating the historical status of the term</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Both"/>
+						<xs:enumeration value="Current"/>
+						<xs:enumeration value="Historical"/>
+						<xs:enumeration value="N/A"/>
+						<xs:enumeration value="Undetermined"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Term_Languages" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Term_Language" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="Language" type="xs:string"/>
+									<xs:element name="Preferred">
+										<xs:annotation>
+											<xs:documentation>Flag indicating whether or not a term is preferred for a particular language</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Preferred"/>
+												<xs:enumeration value="Non Preferred"/>
+												<xs:enumeration value="Undetermined"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Qualifier" type="xs:string" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Label to disambiguate homophones in AAT</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Term_Type" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Alternate Descriptor"/>
+												<xs:enumeration value="Used For Term"/>
+												<xs:enumeration value="Descriptor"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Part_of_Speech" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="N/A"/>
+												<xs:enumeration value="Undetermined"/>
+												<xs:enumeration value="Plural Noun"/>
+												<xs:enumeration value="Singular Noun"/>
+												<xs:enumeration value="Singular and Plural Gerund"/>
+												<xs:enumeration value="Past Participle"/>
+												<xs:enumeration value="Verbal Noun"/>
+												<xs:enumeration value="Noun"/>
+												<xs:enumeration value="Adjectival"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="Lang_Stat" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Undetermined"/>
+												<xs:enumeration value="N/A"/>
+												<xs:enumeration value="Loan Term"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Other_Flags" default="N/A" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Extra field for holding any flags not already represented in the term table (not used in AAT)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="N/A"/>
+						<xs:enumeration value="Full term"/>
+						<xs:enumeration value="Abbreviation"/>
+						<xs:enumeration value="Neologism"/>
+						<xs:enumeration value="Jargon Slang"/>
+						<xs:enumeration value="Scientific term"/>
+						<xs:enumeration value="Common term"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Term_Contributors" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Term_Contributor" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="Contributor_id" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>A combination of the unique identifier and brief description  separated by a foward slash  ('/') for a particular conntributor to the AAT</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="Preferred" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>Indicates whether or not a term is preferred by a particular contributor</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Term_Date" minOccurs="0">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="Display_Date" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>Label for term date information</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Start_Date" type="Historical_Date">
+							<xs:annotation>
+								<xs:documentation>Historical start date of term use</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="End_Date" type="Historical_Date">
+							<xs:annotation>
+								<xs:documentation>Historical end date of term use</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Term_ID" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Integer value identifying a unique term record</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Term_Sources" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Term_Source" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="Source" type="SourceType"/>
+									<xs:element name="Page" type="xs:string" minOccurs="0"/>
+									<xs:element name="Preferred" minOccurs="0">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Preferred"/>
+												<xs:enumeration value="Non Preferred"/>
+												<xs:enumeration value="Unknown"/>
+												<xs:enumeration value="Alternate Preferred"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Term_Text" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The term</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Vernacular" default="Undetermined">
+				<xs:annotation>
+					<xs:documentation>Flag indicating whether or not the term is the vernacular for a certain place</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Vernacular"/>
+						<xs:enumeration value="Other"/>
+						<xs:enumeration value="Undetermined"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:all>
+	</xs:complexType>
+</xs:schema>

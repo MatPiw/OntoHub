@@ -1,0 +1,35 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="RELATION_SETS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="RELATION_SET" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="NAME"/>
+                            <xs:element name="RELATIONS">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="RELATION" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="NAME"/>
+                                                    <xs:element type="xs:string" name="PROPERTY"/>
+                                                    <xs:element type="xs:int" name="PROPERTY_WEIGHT"/>
+                                                    <xs:element type="xs:string" name="REVERSE_PROPERTY"/>
+                                                    <xs:element type="xs:int" name="REVERSE_PROPERTY_WEIGHT"/>
+                                                    <xs:element type="xs:string" name="RANGE"/>
+                                                    <xs:element type="xs:string" name="DOMAIN"/>
+                                                    <xs:element type="xs:string" name="SYMMETRIC"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

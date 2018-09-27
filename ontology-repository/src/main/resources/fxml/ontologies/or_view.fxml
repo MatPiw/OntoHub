@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.or.controller.ORController">
+   <children>
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Hierarchy:" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="hierarchiesLabel" alignment="CENTER" contentDisplay="CENTER" text="1 of 1" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" fillHeight="false" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Relation:" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="relationLabel" alignment="CENTER" contentDisplay="CENTER" text="None" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Button fx:id="relationButton" layoutX="54.0" layoutY="10.0" mnemonicParsing="false" onAction="#onRelationButtonClick" text="Set" />
+         </children>
+      </HBox>
+      <Button fx:id="previousHierarchyButton" mnemonicParsing="false" onAction="#onPreviousHierarchyClick" prefHeight="50.0" prefWidth="70.0" text="Previous" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="nextHierarchyButton" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#onNextHierarchyClick" prefHeight="50.0" prefWidth="70.0" text="Next" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TreeView fx:id="orTree" prefHeight="400.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <VBox prefHeight="300.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Button fx:id="exportButton" mnemonicParsing="false" onAction="#onExportClick" text="Export..." AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+group 'onto-hub'
+version '0.1-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":common")
+    compile project(":getty")
+    compile project(":pl-wordnet")
+    compile project(":ontology-repository")
+
+    compile group: 'com.google.guava', name: 'guava', version: '25.0-jre'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

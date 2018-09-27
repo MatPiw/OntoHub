@@ -1,0 +1,47 @@
+defaultTasks 'jfxRun'
+
+apply plugin: 'javafx-gradle-plugin'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":common")
+    compile project(":getty")
+    compile project(":pl-wordnet")
+    compile project(":ontology-repository")
+    compile project(":converter")
+
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.20'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jfx {
+    //verbose = true
+    mainClass = 'com.ontohub.gui.view.OntoHubView'
+    jfxMainAppJarName = 'OntoHub.jar'
+    vendor = 'MatPiw'
+    nativeOutputDir = "build/jfx/native"
+    bundler = "ALL"
+    nativeReleaseVersion = "1.0"
+    needMenu = true
+    appName = "OntoHub"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.6' //version required
+}

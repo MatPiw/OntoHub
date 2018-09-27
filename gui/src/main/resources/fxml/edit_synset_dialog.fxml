@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+            prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ontohub.gui.controller.dialog.EditSynsetDialogController">
+    <content>
+
+        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8"
+                    xmlns:fx="http://javafx.com/fxml/1">
+            <top>
+                <Label text="Edit result synset" wrapText="true" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="Calibri" size="72.0"/>
+                    </font>
+                </Label>
+            </top>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox fx:id="resultSynsetBox" prefHeight="200.0" prefWidth="100.0">
+                            <padding>
+                                <Insets left="5.0" right="5.0"/>
+                            </padding>
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" text="Result" textAlignment="CENTER">
+                                    <font>
+                                        <Font size="24.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <ToggleButton fx:id="saveAsCopyToggle" mnemonicParsing="false" text="Save as copy"/>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </content>
+    <buttonTypes>
+        <ButtonType fx:constant="OK"/>
+        <ButtonType fx:constant="CANCEL"/>
+    </buttonTypes>
+</DialogPane>

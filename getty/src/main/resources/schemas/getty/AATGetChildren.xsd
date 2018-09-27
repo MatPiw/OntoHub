@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Gregg (J. Paul Getty Trust) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+    <xs:element name="Vocabulary">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Subject">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Child_Relationships" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Preferred_Child" type="ChildType" minOccurs="0"
+                                                    maxOccurs="unbounded"/>
+                                        <xs:element name="Non-Preferred_Child" type="ChildType" minOccurs="0"
+                                                    maxOccurs="unbounded"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Subject_ID" use="required">
+                            <xs:annotation>
+                                <xs:documentation>Unique identification number of an AAT record</xs:documentation>
+                            </xs:annotation>
+                        </xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="ChildType">
+        <xs:sequence>
+            <xs:element name="Child_Subject_ID" type="xs:integer">
+                <xs:annotation>
+                    <xs:documentation>Unique ID number of child record</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Preferred_Term" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Preferred term for this subject</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Historic_Flag">
+                <xs:annotation>
+                    <xs:documentation>Flag indicating the historical status of the parent/child relationship
+                    </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Current"/>
+                        <xs:enumeration value="Historical"/>
+                        <xs:enumeration value="Both"/>
+                        <xs:enumeration value="N/A"/>
+                        <xs:enumeration value="Undetermined"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Display_Date" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Label for relationship date information</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Hier_Rel_Type">
+                <xs:annotation>
+                    <xs:documentation>Hierarchical Relationship Type</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Whole/Part-BTP"/>
+                        <xs:enumeration value="Genus/Species-BTG"/>
+                        <xs:enumeration value="Instance-BTI"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

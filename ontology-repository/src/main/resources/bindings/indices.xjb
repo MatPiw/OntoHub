@@ -1,0 +1,42 @@
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:inheritance="http://jaxb2-commons.dev.java.net/basic/inheritance">
+    <jaxb:bindings schemaLocation="../schemas/indices.xsd">
+        <jaxb:bindings node="//xs:element[@name='TREE_VIEWS']/xs:complexType">
+            <jaxb:class name="IndexTreeViews"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='TREE_VIEW']/xs:complexType">
+            <jaxb:class name="IndexTreeView"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='ROOTS']/xs:complexType">
+            <jaxb:class name="IndexRoots"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='ROOT']/xs:complexType">
+            <jaxb:class name="IndexRoot"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='ITEMS']/xs:complexType">
+            <jaxb:class name="IndexItems"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='TREE']/xs:complexType">
+            <jaxb:class name="IndexTree"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='NODES']/xs:complexType">
+            <jaxb:class name="IndexNodes"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='NODE']/xs:complexType">
+            <jaxb:class name="IndexNode"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='RELATIONS']/xs:complexType">
+            <jaxb:class name="IndexRelations"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='RELATION']/xs:complexType">
+            <jaxb:class name="IndexRelation"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='PRESENTED_FOR_TYPES']/xs:complexType">
+            <jaxb:class name="IndexPresentedForTypes"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='ITEM-VALUES']/xs:complexType">
+            <jaxb:class name="IndexItemValues"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

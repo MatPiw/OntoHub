@@ -1,0 +1,31 @@
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:inheritance="http://jaxb2-commons.dev.java.net/basic/inheritance">
+    <jaxb:bindings schemaLocation="../schemas/ontology.xsd">
+        <jaxb:globalBindings localScoping="toplevel"/>
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.or.model.generated.ontology"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="//xs:element[@name='ILR']/xs:complexType">
+            <jaxb:class name="Ilr"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='METADATA']/xs:complexType">
+            <jaxb:class name="Metadata"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='ONTOLOGY']/xs:complexType">
+            <jaxb:class name="Ontology"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='SYNSET']/xs:complexType">
+            <jaxb:class name="Synset"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='SYNSET_TYPE']/xs:complexType">
+            <jaxb:class name="SynsetType"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='SYNSET_TYPES']/xs:complexType">
+            <jaxb:class name="SynsetTypes"/>
+        </jaxb:bindings>
+        <jaxb:bindings node="//xs:element[@name='TAG']/xs:complexType">
+            <jaxb:class name="Tag"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

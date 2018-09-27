@@ -1,0 +1,12 @@
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <jaxb:bindings schemaLocation="../schemas/getty/AATGetSubject.xsd">
+        <jaxb:globalBindings localScoping="toplevel"/>
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.getty.model.generated.getty.subject"/>
+        </jaxb:schemaBindings>
+        <jaxb:bindings node="//xs:element[@name='Vocabulary']/xs:complexType">
+            <jaxb:class name="SubjectVocabulary"/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

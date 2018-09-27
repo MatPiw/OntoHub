@@ -1,0 +1,34 @@
+defaultTasks 'jfxRun'
+
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+configure(allprojects) { project ->
+    group = 'onto-hub'
+    version = '0.1-SNAPSHOT'
+
+    ext.gradleScriptDir = "${rootProject.projectDir}/gradle"
+
+}
+configure(subprojects) { subproject ->
+    apply plugin: 'application'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    compileJava.options.encoding = 'UTF-8'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+task clean {
+    subprojects.each {
+        it.afterEvaluate {
+            def cleanTask = it.tasks.findByName('clean')
+            if (cleanTask) {
+                dependsOn(cleanTask)
+            }
+        }
+    }
+}
