@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: OntoHub
 description: Ontohub (Ontology Hub) is an application that allows to use different knowledge representations and merge it into one.
-logo: ../images/ontohub-logo-small.jpg
+logo: https://raw.githubusercontent.com/MatPiw/OntoHub/master/images/ontohub-logo-small.jpg
 google_analytics: UA-126598278-1
