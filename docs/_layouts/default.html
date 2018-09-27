@@ -31,7 +31,10 @@
         <p class="view"><a href="{{ site.github.owner_url }}">View My GitHub Profile</a></p>
         {% endif %}
 
+        <h2>OntoHub downloads</h2>
         <p class="view"><a href="{{ site.github.latest_release.url }}">{{ site.github.latest_release.name }}</a></p>
+        <p class="view"><a href="{{ site.github.latest_release.assets[0].browser_download_url }}">Download ZIP file</a></p>
+        
         {% if site.show_downloads %}
         <ul class="downloads">
             <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
