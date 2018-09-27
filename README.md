@@ -1,4 +1,4 @@
-#OntoHub
+# OntoHub
 
 ![Alt text](https://raw.githubusercontent.com/MatPiw/OntoHub/master/images/ontohub-logo-small.png "OntoHub logo")
 Ontohub (Ontology Hub) is an application that allows to use different knowledge representations (ontologies, thesauri, wordnets) in various formats and operate on them to create new representations of domain or expert knowledge.
@@ -9,24 +9,24 @@ Starting from choosing various input ontologies, operating on synsets and relati
 OntoHub is easily-extensible. Simple implementation of few interfaces allows to add a new Input or Output knowledge representation format.
 Intuitive and simple interface along with a view that can show two ontologies and result ontology at the same time makes work with the application more enjoyable.
 
-##Features
+## Features
 - 3-column view to easily navigate between input and output ontologies
 - Merging two synsets into one
 - Dynamic synset conversion (application chooses the converter based on input / output formats chosen)
 - Editing converted synsets to match user's needs
 - Extensibility - adding new ontology formats is fairly simple and generic
 
-##Formats supported
+## Formats supported
 Ontohub is currently in an early phase and doesn't support many formats yet. Form the sake of example, Ontohub currently supports following formats:
 
-###Input formats
+### Input formats
 - Getty Art and Architecture Thesaurus (http://www.getty.edu/research/tools/vocabularies/aat/)
 - PL Wordnet (Słowosieć) (http://plwordnet.pwr.wroc.pl/wordnet/)
 
-###Output formats
+### Output formats
 - Ontology Repository Editor
 
-##Extending
+## Extending
 Extending OntoHub can be achieved by adding new Input or Output formats. To add a new format, the following steps should be performed:
 
 1. Create new Application module (based on gradle).
@@ -58,7 +58,7 @@ This created a need to implement a cyclic-generic structure.
 
 11. Add your `FormatConverter` implementation to a `ConverterFactory` in a `AVAILABLE_CONVERTERS` constant.
 
-###Implementation hints
+### Implementation hints
 - If you are implementing an output format, it is good to use a `TreeRepresentation` class along with `ResultTreeHandler` class in your controller implementation. It will cover most cases of inserting new synsets in a result tree. Pass your `KnowledgeRepresentation` implementation along with **raw** relation model class.
 - If you want your view to handle polyhierarchical structures, you can use a `MultiTreeController` class in your view controller. Pass your `KnowledgeRepresentation` implementation and **raw** Relation object.
 > It is important to pass a raw relation object here, because it represents the relation in general, not a particular relationship between terms.
