@@ -1,10 +1,10 @@
 #OntoHub
 
-![Alt text](https://bitbucket.org/MatPiw/ontohub/raw/8364aac83f7844e9492d217a1bf9ccc809a10498/images/ontohub-logo-small.png "OntoHub logo")
+![Alt text](https://raw.githubusercontent.com/MatPiw/OntoHub/master/images/ontohub-logo-small.png "OntoHub logo")
 Ontohub (Ontology Hub) is an application that allows to use different knowledge representations (ontologies, thesauri, wordnets) in various formats and operate on them to create new representations of domain or expert knowledge.
 Starting from choosing various input ontologies, operating on synsets and relations between them, leading to create a brand new knowledge representation.
 
-![Alt text](https://bitbucket.org/MatPiw/ontohub/raw/fd1ba643e9a2fddf1192d30effb2144c1781d66d/images/ontohub-view.png "OntoHub view")
+![Alt text](https://raw.githubusercontent.com/MatPiw/OntoHub/master/images/ontohub-view.png "OntoHub view")
 
 OntoHub is easily-extensible. Simple implementation of few interfaces allows to add a new Input or Output knowledge representation format.
 Intuitive and simple interface along with a view that can show two ontologies and result ontology at the same time makes work with the application more enjoyable.
